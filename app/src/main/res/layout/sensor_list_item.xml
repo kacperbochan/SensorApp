@@ -6,14 +6,12 @@
     android:orientation="vertical">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:padding="@dimen/sensor_item_padding"
+        android:padding="5dp"
         android:orientation="horizontal">
 
-        <!-- //5.  //39. padding-->
         <ImageView
             android:id="@+id/sensor_item_icon"
             android:layout_width="50dp"

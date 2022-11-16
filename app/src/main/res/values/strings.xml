@@ -5,4 +5,22 @@
     <string name="hide_subtitles">Ukryj liczbe</string>
     <string name="missing_sensor">Brak czujnika</string>
     <string name="sensor_Light_Label">Czujnik światła</string>
+    <string name="location_button">Pobierz lokalizację</string>
+    <string name="address_button">Pobierz\nadres</string>
+    <string name="location_prompt">Wciśnij przycisk, aby pobrać ostatnią lokalizację</string>
+    <string name="location_permission_denied">Brak dostępu do lokalizacji</string>
+    <string name="no_location">Nie uzyskano lokalizacji</string>
+    <string name="service_not_abailable">usługa niedostępna 🙁</string>
+    <string name="no_address_found">Nie odnaleziono adresu</string>
+
+    <string name="location_text">
+        Szerokość geograficzna: %1$.4f
+        \nDługość geograficzna: %2$.4f
+        \nCzas: %3$tr
+    </string>
+    <string name="address_text">
+        Adres: %1$s
+        \nCzas: %2$tr
+    </string>
+
 </resources>

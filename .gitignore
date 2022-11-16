@@ -13,3 +13,8 @@
 .externalNativeBuild
 .cxx
 local.properties
+/.vs/VSWorkspaceState.json
+/.idea/vcs.xml
+/.vs/SensorApp/FileContentIndex/5416d549-e50d-4dcc-b174-b426a73b2ff2.vsidx
+/.vs/SensorApp/FileContentIndex
+/.vs/SensorApp/v17/.suo

@@ -101,7 +101,7 @@ public class SensorActivity extends AppCompatActivity {
         }
     }
 
-    private class SensorHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    private class SensorHolder extends RecyclerView.ViewHolder {
 
         private Sensor sensor;
         private TextView nameTextView;
@@ -109,7 +109,6 @@ public class SensorActivity extends AppCompatActivity {
 
         public SensorHolder(LayoutInflater inflater, ViewGroup parent){
             super(inflater.inflate(R.layout.sensor_list_item, parent, false));
-            itemView.setOnClickListener(this);
 
             sensorImg = itemView.findViewById(R.id.sensor_item_icon);
             nameTextView = itemView.findViewById(R.id.sensor_item_name);
@@ -131,8 +130,8 @@ public class SensorActivity extends AppCompatActivity {
             if(sensor.getType()==Sensor.TYPE_MAGNETIC_FIELD){
                 itemContainer.setBackgroundColor(getResources().getColor(R.color.blue));
                 itemContainer.setOnClickListener(v-> {
-                    Intent intent = new Intent(SensorActivity.this, SensorDetailsActivity.class);
-                    startActivityForResult(intent, SENSOR_DETAILS_ACTIVITY_REQUEST_CODE);
+                    Intent intent = new Intent(SensorActivity.this, LocationActivity.class);
+                    startActivityForResult(intent, LOCATION_ACTIVITY_REQUEST_CODE);
                 });
             }
 
@@ -164,13 +163,6 @@ public class SensorActivity extends AppCompatActivity {
             }
             String log = String.format("Name: %s | Manufacturer: %s | MaxValue: %f", sensor.getName(), sensor.getVendor(), sensor.getMaximumRange());
             Log.i("SENSOR |", log);
-        }
-
-        @Override
-        public void onClick(View view) {
-            Intent intent = new Intent(view.getContext(), SensorDetailsActivity.class);
-            intent.putExtra(KEY_EXTRA_SENSOR_TYPE, sensor.getType());
-            startActivity(intent);
         }
     }
 

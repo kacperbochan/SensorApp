@@ -1,0 +1,12 @@
+
+m
+java:S1301b"KReplace this "switch" statement by "if" statements to increase readability.(×ö³–úÿÿÿÿ8ñòî‹È0
+t	java:S116'"YRename this field "LocationButton" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëŒ8‰óî‹È0
+y
+java:S1450'"]Remove the "LocationButton" field and declare it as a local variable in the relevant methods.(ëŒ8—óî‹È0
+|
+java:S1450-"_Remove the "getAddressButton" field and declare it as a local variable in the relevant methods.(û¯ÀÕ8—óî‹È0
+]	java:S125J"<This block of commented-out lines of code should be removed.(±€åûşÿÿÿÿ8¢óî‹È0
+g
+java:S1874]"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(Ô¾å³8£óî‹È0
+C	java:S131b""Add a default case to this switch.(×ö³–úÿÿÿÿ8¥óî‹È0
