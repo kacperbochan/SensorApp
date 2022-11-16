@@ -24,11 +24,14 @@ import android.widget.TextView;
 import java.util.List;
 
 import static android.app.PendingIntent.getActivity;
+import static com.example.sensorapp.SensorDetailsActivity.EXTRA_SENSOR_TYPE_PARAMETAR;
 
 public class SensorActivity extends AppCompatActivity {
 
     public static String KEY_EXTRA_SENSOR_TYPE;
     public static final String KEY_ARE_VISIBLE = "areVisible";
+    public static final int SENSOR_DETAILS_ACTIVITY_REQUEST_CODE = 1;
+    public static final int LOCATION_ACTIVITY_REQUEST_CODE = 1;
 
     private RecyclerView recyclerView;
     private SensorManager sensorManager;
@@ -116,6 +119,23 @@ public class SensorActivity extends AppCompatActivity {
             this.sensor = sensor;
 
             nameTextView.setText(sensor.getName());
+            View itemContainer = itemView.findViewById((R.id.list_item_sensor));
+            if(sensor.getType()==Sensor.TYPE_LIGHT || sensor.getType()==Sensor.TYPE_RELATIVE_HUMIDITY){
+                itemContainer.setBackgroundColor(getResources().getColor(R.color.blue));
+                itemContainer.setOnClickListener(v-> {
+                    Intent intent = new Intent(SensorActivity.this, SensorDetailsActivity.class);
+                    intent.putExtra(EXTRA_SENSOR_TYPE_PARAMETAR, sensor.getType());
+                    startActivityForResult(intent, SENSOR_DETAILS_ACTIVITY_REQUEST_CODE);
+                });
+            }
+            if(sensor.getType()==Sensor.TYPE_MAGNETIC_FIELD){
+                itemContainer.setBackgroundColor(getResources().getColor(R.color.blue));
+                itemContainer.setOnClickListener(v-> {
+                    Intent intent = new Intent(SensorActivity.this, SensorDetailsActivity.class);
+                    startActivityForResult(intent, SENSOR_DETAILS_ACTIVITY_REQUEST_CODE);
+                });
+            }
+
             switch(sensor.getType()){
                 case 1:
                     sensorImg.setImageResource(R.drawable.ic_sensor_accelerometer);

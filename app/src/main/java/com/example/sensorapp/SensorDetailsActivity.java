@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 public class SensorDetailsActivity extends AppCompatActivity implements SensorEventListener {
 
+    public static final String EXTRA_SENSOR_TYPE_PARAMETAR = "EXTRA_SENSOR_TYPE";
     private SensorManager sensorManager;
     private Sensor sensor;
     private TextView sensorTextView;
@@ -26,11 +27,15 @@ public class SensorDetailsActivity extends AppCompatActivity implements SensorEv
         sensorValueTextView = findViewById(R.id.sensor__value);
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        sensor = sensorManager.getDefaultSensor((Integer) getIntent().getSerializableExtra(SensorActivity.KEY_EXTRA_SENSOR_TYPE));
+        sensor = sensorManager.getDefaultSensor( getIntent().getIntExtra(EXTRA_SENSOR_TYPE_PARAMETAR, Sensor.TYPE_LIGHT));
 
         if (sensor == null)
         {
             sensorTextView.setText(R.string.missing_sensor);
+            sensorValueTextView.setText("");
+        }
+        else{
+            sensorTextView.setText(sensor.getName());
             sensorValueTextView.setText("");
         }
     }
@@ -53,10 +58,17 @@ public class SensorDetailsActivity extends AppCompatActivity implements SensorEv
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
+        int type = sensorEvent.sensor.getType();
         float currentValue = sensorEvent.values[0];
-
-        sensorTextView.setText(sensor.getName());
-        sensorValueTextView.setText(Float.toString(currentValue));
+        switch(type){
+            case Sensor.TYPE_LIGHT:
+                sensorValueTextView.setText(String.valueOf(currentValue));
+            break;
+            case Sensor.TYPE_RELATIVE_HUMIDITY:
+                sensorValueTextView.setText(Float.toString(currentValue));
+            break;
+            default:
+        }
     }
 
     @Override
